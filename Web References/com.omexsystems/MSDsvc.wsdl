@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="HelloWorld">
+        <s:complexType />
+      </s:element>
+      <s:element name="HelloWorldResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="HelloWorldResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="symbol" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LoginID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getInfoResult" type="tns:MSD" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="MSD">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="msd_ticker" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="msd_name" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="msd_country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="msd_id_sedol1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="msd_id_isin" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="msd_id_cusip" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="msd_security_typ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="msd_eqy_prim_exch" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="msd_crncy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="msd_to_activ" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="msd_to_tr" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="msd_ticker_and_exch_code" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="msd_eqy_prim_exch_shrt" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="getDiffInfo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Value_TextBox" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Column_Name_Simple" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Column_Name_ddl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Value_ddl" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="LoginID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="UserName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Server" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="getDiffInfoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="getDiffInfoResult" type="tns:ArrayOfAnyType" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfAnyType">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="anyType" nillable="true" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="string" nillable="true" type="s:string" />
+      <s:element name="MSD" nillable="true" type="tns:MSD" />
+      <s:element name="ArrayOfAnyType" nillable="true" type="tns:ArrayOfAnyType" />
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="HelloWorldSoapIn">
+    <wsdl:part name="parameters" element="tns:HelloWorld" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldSoapOut">
+    <wsdl:part name="parameters" element="tns:HelloWorldResponse" />
+  </wsdl:message>
+  <wsdl:message name="getInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:getInfo" />
+  </wsdl:message>
+  <wsdl:message name="getInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:getInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="getDiffInfoSoapIn">
+    <wsdl:part name="parameters" element="tns:getDiffInfo" />
+  </wsdl:message>
+  <wsdl:message name="getDiffInfoSoapOut">
+    <wsdl:part name="parameters" element="tns:getDiffInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpGetIn" />
+  <wsdl:message name="HelloWorldHttpGetOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getInfoHttpGetIn">
+    <wsdl:part name="symbol" type="s:string" />
+    <wsdl:part name="LoginID" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:MSD" />
+  </wsdl:message>
+  <wsdl:message name="getDiffInfoHttpGetIn">
+    <wsdl:part name="Value_TextBox" type="s:string" />
+    <wsdl:part name="Column_Name_Simple" type="s:string" />
+    <wsdl:part name="Column_Name_ddl" type="s:string" />
+    <wsdl:part name="Value_ddl" type="s:string" />
+    <wsdl:part name="LoginID" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Server" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getDiffInfoHttpGetOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:message name="HelloWorldHttpPostIn" />
+  <wsdl:message name="HelloWorldHttpPostOut">
+    <wsdl:part name="Body" element="tns:string" />
+  </wsdl:message>
+  <wsdl:message name="getInfoHttpPostIn">
+    <wsdl:part name="symbol" type="s:string" />
+    <wsdl:part name="LoginID" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:MSD" />
+  </wsdl:message>
+  <wsdl:message name="getDiffInfoHttpPostIn">
+    <wsdl:part name="Value_TextBox" type="s:string" />
+    <wsdl:part name="Column_Name_Simple" type="s:string" />
+    <wsdl:part name="Column_Name_ddl" type="s:string" />
+    <wsdl:part name="Value_ddl" type="s:string" />
+    <wsdl:part name="LoginID" type="s:string" />
+    <wsdl:part name="UserName" type="s:string" />
+    <wsdl:part name="Password" type="s:string" />
+    <wsdl:part name="Server" type="s:string" />
+  </wsdl:message>
+  <wsdl:message name="getDiffInfoHttpPostOut">
+    <wsdl:part name="Body" element="tns:ArrayOfAnyType" />
+  </wsdl:message>
+  <wsdl:portType name="MSDsvcSoap">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldSoapIn" />
+      <wsdl:output message="tns:HelloWorldSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Method Returns The Information Of Given Symbol. Example: AA,AAME,AAPL</wsdl:documentation>
+      <wsdl:input message="tns:getInfoSoapIn" />
+      <wsdl:output message="tns:getInfoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDiffInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Method Returns The Information Of Given Symbol. Example: AA,AAME,AAPL</wsdl:documentation>
+      <wsdl:input message="tns:getDiffInfoSoapIn" />
+      <wsdl:output message="tns:getDiffInfoSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MSDsvcHttpGet">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpGetIn" />
+      <wsdl:output message="tns:HelloWorldHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Method Returns The Information Of Given Symbol. Example: AA,AAME,AAPL</wsdl:documentation>
+      <wsdl:input message="tns:getInfoHttpGetIn" />
+      <wsdl:output message="tns:getInfoHttpGetOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDiffInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Method Returns The Information Of Given Symbol. Example: AA,AAME,AAPL</wsdl:documentation>
+      <wsdl:input message="tns:getDiffInfoHttpGetIn" />
+      <wsdl:output message="tns:getDiffInfoHttpGetOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:portType name="MSDsvcHttpPost">
+    <wsdl:operation name="HelloWorld">
+      <wsdl:input message="tns:HelloWorldHttpPostIn" />
+      <wsdl:output message="tns:HelloWorldHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Method Returns The Information Of Given Symbol. Example: AA,AAME,AAPL</wsdl:documentation>
+      <wsdl:input message="tns:getInfoHttpPostIn" />
+      <wsdl:output message="tns:getInfoHttpPostOut" />
+    </wsdl:operation>
+    <wsdl:operation name="getDiffInfo">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">This Method Returns The Information Of Given Symbol. Example: AA,AAME,AAPL</wsdl:documentation>
+      <wsdl:input message="tns:getDiffInfoHttpPostIn" />
+      <wsdl:output message="tns:getDiffInfoHttpPostOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="MSDsvcSoap" type="tns:MSDsvcSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInfo">
+      <soap:operation soapAction="http://tempuri.org/getInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDiffInfo">
+      <soap:operation soapAction="http://tempuri.org/getDiffInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MSDsvcSoap12" type="tns:MSDsvcSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="HelloWorld">
+      <soap12:operation soapAction="http://tempuri.org/HelloWorld" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInfo">
+      <soap12:operation soapAction="http://tempuri.org/getInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDiffInfo">
+      <soap12:operation soapAction="http://tempuri.org/getDiffInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MSDsvcHttpGet" type="tns:MSDsvcHttpGet">
+    <http:binding verb="GET" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInfo">
+      <http:operation location="/getInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDiffInfo">
+      <http:operation location="/getDiffInfo" />
+      <wsdl:input>
+        <http:urlEncoded />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="MSDsvcHttpPost" type="tns:MSDsvcHttpPost">
+    <http:binding verb="POST" />
+    <wsdl:operation name="HelloWorld">
+      <http:operation location="/HelloWorld" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getInfo">
+      <http:operation location="/getInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="getDiffInfo">
+      <http:operation location="/getDiffInfo" />
+      <wsdl:input>
+        <mime:content type="application/x-www-form-urlencoded" />
+      </wsdl:input>
+      <wsdl:output>
+        <mime:mimeXml part="Body" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="MSDsvc">
+    <wsdl:port name="MSDsvcSoap" binding="tns:MSDsvcSoap">
+      <soap:address location="http://omexsystems.com/BackOffice/WebServices/MSDsvc.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MSDsvcSoap12" binding="tns:MSDsvcSoap12">
+      <soap12:address location="http://omexsystems.com/BackOffice/WebServices/MSDsvc.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MSDsvcHttpGet" binding="tns:MSDsvcHttpGet">
+      <http:address location="http://omexsystems.com/BackOffice/WebServices/MSDsvc.asmx" />
+    </wsdl:port>
+    <wsdl:port name="MSDsvcHttpPost" binding="tns:MSDsvcHttpPost">
+      <http:address location="http://omexsystems.com/BackOffice/WebServices/MSDsvc.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
